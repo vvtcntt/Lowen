@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+
+#content{width:1100px; height:auto; margin:0px auto}
+#content #nvar{width:100%; height:auto; float:left; margin:10px 0px}
+#content #nvar ul{width:100%; height:auto; float:left; margin:0px}
+#content #nvar ul li{float:left; margin:0px 3px ; line-height:30px}
+#content #nvar ul li a{color:#232323; margin:0px 7px 0px 7px; display:block}
+#content #nvar ul li a:first-child{margin-left:0px}
+#content #nvar ul li :first-child{margin-left:0px}
+#productDetail{width:100%; height:auto; float:left; margin:5px 0px}
+#productDetail #imgProductDetail{ width:55%; height:auto; float:left;}
+#productDetail #imgProductDetail #thumbs{width:100%; height:500px; float:left; margin:0px; display:table; table-layout:fixed; border:1px solid #f0eeee}
+#productDetail #imgProductDetail #thumbs a{text-align:center; display:table-cell; vertical-align:middle}
+#productDetail #imgProductDetail #thumbs a img{max-width:98%; max-height:490px; margin:5px}
+#listImageThumbs{width:100%; height:auto; float:left; margin:10px 0px}
+#listImageThumbs ul{width:100%; height:auto; float:left; margin:0px}
+#listImageThumbs ul li{ width:19%; height:110px; float:left; border:1px solid #f0eeee; margin:0.5%; display:table}
+#listImageThumbs ul li:hover{ border:1px solid #dad9d9}
+#listImageThumbs ul li:first-child{margin-left:0px}
+#listImageThumbs ul li:nth-child(5n){margin-right:0px}
+#listImageThumbs ul li a{text-align:center; display:table-cell; vertical-align:middle}
+#listImageThumbs ul li a img{max-width:98%; max-height:100px}
+
+#infoProductDetail{width:42%; height:auto; float:right; margin:0px}
+#infoProductDetail h1{ font-size:23px; font-family:"Open Sans",sans-serif; text-transform:uppercase; text-transform:uppercase; margin:0px 5px 10px 0px}
+#infoProductDetail .price{margin:5px 0px; font-size:17px}
+#infoProductDetail .price strong{color:#be4713}
+#infoProductDetail .price span{font-size:14px; color:#a6a5a5; font-style:italic}
+#infoProductDetail #parameter{width:100%; height:auto; float:left; margin:10px 0px}
+#infoProductDetail #parameter #nvarParameter{width:100%; height:auto; float:left; margin:0px ; border-bottom:1px solid #ececec}
+#infoProductDetail #parameter #nvarParameter span{color:#000; margin:0px 0px; text-transform:uppercase; line-height:25px; display:inline-block; background: #ececec; padding:2px 10px;font-family:"Open Sans",sans-serif; font-weight:bold}
+#contentParameter{width:100%; height:auto; float:left; margin:0px}
+#contentParameter table{width:100%; height:auto; float:left; margin:10px 0px; border:none}
+#contentParameter table tr{border:none}
+#contentParameter table tr td{ width:50%; font-size:16px; color:#5d5d5d; line-height:25px}
+#download{ width:100%; height:auto; float:left; margin:0px}
+#download #nvarDownload{width:100%; height:auto; float:left; margin:0px ; border-bottom:1px solid #ececec}
+#download #nvarDownload span{color:#000; margin:0px 0px; text-transform:uppercase; line-height:25px; display:inline-block; background: #ececec; padding:2px 10px;font-family:"Open Sans",sans-serif; font-weight:bold}
+#contentDownload{width:100%; height:auto; float:left; margin:10px 0px; padding:10px 0px}
+#contentDownload a{color:#6e6e6e; font-size:14px; margin:5px 0px; display:block}
+#contentDownload a i{color:#ff6c00}
+#buy{width:100%; height:auto; float:left; margin:0px; font-family:"Open Sans",sans-serif}
+#buy a{ display:inline-block; padding:5px 10px; background:#be4713; color:#FFF; text-transform:uppercase}
+#contentProductDetail{ width:100%; height:auto; float:left; margin:15px 0px}
+.nvarContentProductDetail{width:100%; height:auto; float:left; margin:0px ; border-bottom:1px solid #ececec}
+.nvarContentProductDetail span{color:#000; margin:0px 0px; text-transform:uppercase; line-height:25px; display:inline-block; background: #ececec; padding:2px 10px;font-family:"Open Sans",sans-serif; font-weight:bold}
+#contentProductDetail .content{width:100%; height:auto; float:left; margin:10px 0px; padding:5px 0px; text-align:justify; line-height:22px; font-size:15px}
+#contentProductDetail .content img{max-width:100%; height:auto}
+#involveProduct{width:100%; height:auto; float:left; margin:0px}
+
+/*Product List*/
+#productList{width:100%; height:auto; float:left; margin:10px 0px}
+#productList h1{font-family:"Open Sans",sans-serif; margin:5px 0px; text-transform:uppercase; color:#333; position:relative}
+#productList h1:after{ width:100%; height:1px; background:#f0eeee; position:absolute; content:''; left:0px; top:15px }
+#productList h1 a{color:#333; background:#FFF; z-index:10; position:relative; padding-right:15px}
+#contentProductList{width:100%; height:auto; float:left; }
+.tearPd{width:19%; height:auto; float:left; margin:5px 1% 5px 0px; position:relative}
+.tearPd:nth-child(50){ margin-right:0px}
+.tearPd .img{width:100%; height:auto; float:left; margin:0px; display:table; table-layout:fixed}
+.tearPd .img amp-img{max-width:97%; max-height:200px}
+.contentTearPd{ border:1px solid #f0eeee; width:auto; height:100%; float:left}
+.tearPd .img a{text-align:center; display:table-cell; vertical-align:middle}
+.tearPd .img a img{max-width:97%; max-height:200px}
+.tearPd h3{font-weight:normal; margin:0px; display:block; clear:both}
+.tearPd h3 a{margin:5px 7px; display:block; text-align:center; color:#505050; font-weight:bold;font-family:"Open Sans",sans-serif}
+.tearPd .boxPrice{width:100%; height:auto; float:left; margin:5px 0px}
+.tearPd .boxPrice .price{ display:block; color:#ff3c00; font-size:18px; margin:5px 7px; float:left}
+.tearPd .boxPrice a{float:right; margin:0px 7px; padding:5px 7px; background:#4a4a4a; display:block; color:#FFF}
+.tearPd .news{position:absolute; top:5px; right:5px; color:#F00; font-family:"Open Sans",sans-serif}
