@@ -1,0 +1,109 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+@model LOWEN.Models.tblProduct
+<div id="content">
+    <div class="nvar">
+        <nav>
+            <ul>
+                @Html.Raw(ViewBag.nUrl)
+            </ul>
+        </nav>
+    </div>
+    <div id="productDetail">
+        <div id="topProductDetail">
+            <div id="imgProductDetail">
+                <div id="thumbs">
+                    <a href="#" title="@Model.Name"><img src="@Model.ImageLinkDetail" alt="@Model.Name" /></a>
+                </div>
+                <div id="listImageThumbs">
+                    <ul>
+                        @Html.Raw(ViewBag.resultImages)
+                    </ul>
+                </div>
+            </div>
+            <div id="infoProductDetail">
+                <h1>@Model.Name</h1>
+                <p class="price">
+                    Giá bán lẻ : <strong>@String.Format("{0:#,#}", Model.Price) đ</strong>
+                    @if (Model.Vat == true)
+                    {
+                        <span>(Giá đã bao gồm VAT)</span>
+
+                    }
+                    else
+                    {                 <span>(Giá chưa bao gồm VAT)</span>
+                    }
+                </p>
+                <div id="parameter">
+                    <div id="nvarParameter">
+                        <span>Thông số kỹ thuật</span>
+                    </div>
+                    <div id="contentParameter">
+                        <table>
+                            <tbody>
+                                <tr><td>Mã sản phẩm</td><td>@Model.Code</td></tr>
+                                <tr><td>Bảo hành</td><td>@Model.Warranty năm</td></tr>
+                                <tr><td>Kích thước</td><td>@Model.Size mm</td></tr>
+                                @Html.Raw(ViewBag.resultCriteria)
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="download">
+                    <div id="nvarDownload">
+                        <span>Tải về</span>
+                    </div>
+                    <div id="contentDownload">
+                        <a title="" href="">
+                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                            Bản vẽ kỹ thuật
+                        </a>
+                        <a title="" href="">
+                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                            Hướng dẫn sử dụng
+                        </a>
+                    </div>
+                </div>
+                <div id="buy">
+                    <a href="/Order/OrderAdd?id=@Model.id&Ord=1" title="Đặt hàng">
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        Đặt hàng
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="contentProductDetail">
+          @if (Model.Content != null && Model.Content != "")
+          {  <div class="nvarContentProductDetail">
+                <span>Thông tin sản phẩm</span>
+            </div>
+            <div class="content">
+                @Html.Raw(Model.Content)
+            </div>}
+            @if (Model.Parameter != null && Model.Parameter != "")
+            {
+                <div class="nvarContentProductDetail">
+                    <span>Bản vẽ kỹ thuật</span>
+                </div>
+                <div class="content">
+                    @Html.Raw(Model.Parameter)
+                </div>
+            }
+            <div id="tag">
+                <ul>
+                    <li><i class="fa fa-tags" aria-hidden="true"></i></li>
+                    @Html.Raw(ViewBag.resultTag)
+                </ul>
+            </div>
+        </div>
+        <div id="involveProduct">
+            <div class="nvarContentProductDetail">
+                <span>Sản phẩm liên quan</span>
+            </div>
+            <div id="productList">
+                @Html.Raw(ViewBag.result)
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,17 +2,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Untitled Document</title>
-    <meta name="viewport" content="width=device-width" />
+    @Html.Raw(ViewBag.Title)
+    @Html.Raw(ViewBag.dcTitle)
+    @Html.Raw(ViewBag.Description)
+    @Html.Raw(ViewBag.dcDescription)
+    @Html.Raw(ViewBag.Keyword)
+    @Html.Raw(ViewBag.canonical)
+    @Html.Raw(ViewBag.Meta)
+    @{Html.RenderAction("partialdefault", "Default");}
+
+
+    <meta http-equiv="Content-Language" content="vi" />    <meta name="viewport" content="width=device-width" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="~/Content/Display/style/default.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/news.css" rel="stylesheet" />
     <link href="~/Content/Display/style/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/Display/style/nivo-slider.css" rel="stylesheet" />
     <link href="~/Content/Display/style/product.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/Order.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/Order_Rs.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/contact.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/contact_Rs.css" rel="stylesheet" />
     <script src="~/Content/Display/scripts/jquery-1.9.0.min.js"></script>
     <script src="~/Content/Display/scripts/jquery.nivo.slider.js"></script>
     <script src="~/Content/Display/scripts/Scroll.js"></script>
-
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 
@@ -33,5 +47,46 @@
     $(window).load(function() {
         $('#slider').nivoSlider();
     });
+</script>
+<script type="text/javascript">
+
+    function CreateOrder(id) {
+        var quanlity = 1;
+        $.post("/Order/Create", { "idp": id, "ord": quanlity },
+            function (data) {
+                $("#popup_content").html(data.result);
+                $(".orderCount").html(data.sl);
+
+            });
+
+        return false;
+    }
+
+    function UpdateOrd(pId) {
+        var ord = $(".txtOrd" + pId).val();
+
+        $.post("/Order/UpdatOder", { "id": pId, "ord": ord },
+           function (data) {
+               $('#Gia' + pId).html(data.gia + " vnd");
+               $(".tt").html(data.tt);
+               htgh
+               $(".orderCount").html(data.sl);
+
+           });
+        return false;
+    }
+    function DeleteOrder(pId) {
+        $.post("/Order/DeleteOrder", { "id": pId },
+           function (data) {
+
+               $('.row' + pId).html(data.thongtin);
+               $(".tt").html(data.tt);
+               $(".count").html(data.count);
+               $(".orderCount").html( data.sl );
+
+           });
+        return false;
+    }
+
 </script>
 </html>

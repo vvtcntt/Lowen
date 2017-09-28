@@ -217,7 +217,10 @@ namespace LOWEN.Controllers.Admin.News
                      strReturn = "---";
                  }
                  ViewBag.drMenu = new SelectList(carlist, "Value", "Text", id);
-                ViewBag.Ord = pro[0].Ord + 1;
+                if (pro.Count > 0)
+                    ViewBag.Ord = pro[0].Ord + 1;
+                else
+                    ViewBag.Ord = "1";
                 if (Session["Thongbao"] != null && Session["Thongbao"] != "")
                 {
 

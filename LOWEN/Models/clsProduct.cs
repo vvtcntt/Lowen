@@ -27,6 +27,11 @@ namespace LOWEN.Models
             get;
             set;
         }
+        public string Images
+        {
+            get;
+            set;
+        }
         public int Ord
         {
             get;

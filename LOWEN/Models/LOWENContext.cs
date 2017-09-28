@@ -65,6 +65,7 @@ namespace LOWEN.Models
         public DbSet<tblProductCheck> tblProductChecks { get; set; }
         public DbSet<tblProductSale> tblProductSales { get; set; }
         public DbSet<tblProductSyn> tblProductSyns { get; set; }
+        public DbSet<tblProductTag> tblProductTags { get; set; }
         public DbSet<tblRegister> tblRegisters { get; set; }
         public DbSet<tblRight> tblRights { get; set; }
         public DbSet<tblSupport> tblSupports { get; set; }
@@ -124,6 +125,7 @@ namespace LOWEN.Models
             modelBuilder.Configurations.Add(new tblProductCheckMap());
             modelBuilder.Configurations.Add(new tblProductSaleMap());
             modelBuilder.Configurations.Add(new tblProductSynMap());
+            modelBuilder.Configurations.Add(new tblProductTagMap());
             modelBuilder.Configurations.Add(new tblRegisterMap());
             modelBuilder.Configurations.Add(new tblRightMap());
             modelBuilder.Configurations.Add(new tblSupportMap());

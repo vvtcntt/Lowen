@@ -327,14 +327,7 @@
                                     @Html.Raw(ViewBag.chuoicolor)
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="key">
-                                    Chức năng sản phẩm
-                                </td>
-                                <td>
-                                    @Html.Raw(ViewBag.chuoifun)
-                                </td>
-                            </tr>
+                             
                             <tr>
                                 <td class="key">
                                     Thứ tự
@@ -647,7 +640,7 @@
              var text = $(this).val();
              var leght = $(this).val().length;
             $('#Title').val(text);
-            $('#Keyword').val(bodauTiengViet(text) + "," + "Giá " + text + " rẻ nhất");
+            $('#Keyword').val("Giá " + text + " rẻ nhất");
             $('.Soluong').html('Số ký tự là : '+leght +' (khuyến cáo là dưới 55 ký tự)');
 
              // alert(text);

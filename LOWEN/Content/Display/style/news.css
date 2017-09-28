@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* CSS Document */
+
+#News{ width:100%; height:auto; float:left; background:#FFF; padding:10px 0px}
+#LeftNews{ width:20%; height:auto; float:left; margin:0px 5px 0px 0px}
+.Tear_Cate{ width:100%; height:auto; float:left; margin:0px 0px 10px 0px}
+.Tear_Cate .nVar_Tear_Cate{ width:100%; height:auto; float:left; margin:0px; background:#1b323b}
+.Tear_Cate .nVar_Tear_Cate span{padding:10px; font-size:14px; color:#FFF; display:block}
+.Tear_Cate .Content_Tear_Cate{ width:100%; height:auto; background:#fafafa; float:left}
+.Tear_Cate .Content_Tear_Cate ul{width:100%; height:auto; float:left; margin:15px 0px}
+.Tear_Cate .Content_Tear_Cate ul li{width:100%; float:left; border-bottom:1px #e5e5e5 dashed}
+.Tear_Cate .Content_Tear_Cate ul li a{padding:7px; color:#3e3e3e; display:block;    -webkit-transition: padding-left .2s linear; font-weight:bold}
+.Tear_Cate .Content_Tear_Cate ul li:hover a{ padding-left:5px}
+.Tear_Cate .Content_Tear_Cate ul li:last-child{border:none}
+.Tear_Cate .Content_Tear_Cate1{ width:100%; height:auto;  float:left;background:#fafafa;}
+.Tear_Cate .Content_Tear_Cate1 ul{width:100%; height:auto; float:left; margin:15px 0px}
+.Tear_Cate .Content_Tear_Cate1 ul li{width:100%; float:left }
+.Tear_Cate .Content_Tear_Cate1 ul li a{padding:6px 7px; color:#3e3e3e; display:block;    -webkit-transition: padding-left .2s linear;}
+
+#RightNews{ width:77%; float:right; margin:0px}
+.Tear_Cate .Content_Tear_Cate1 ul li:hover a{ padding-left:5px}
+.Tear_Cate .Content_Tear_Cate1 ul li:last-child{border:none}
+.Root{ width:100%; height:auto; float:left; background:#f9f9f9; margin:0px}
+.Root a{color:#3e3e3e; font-size:14px; display:inline-block; line-height:34px; margin: auto 5px}
+.Root i{background: url(../iCon/beacon_sprite.png) no-repeat 0 -686px;
+    font-size: 0;
+    margin: 0px 2px;
+    padding: 14px 2px;}
+.nVar_News{ width:100%; height:auto; float:left; margin:0px; border-bottom:1px solid #e5e5e5}
+.Tear_News:last-child{border:none}
+.nVar_News h1{font-weight:normal; margin:5px; text-transform:uppercase; font-size:16px; font-weight:bold; color:#3e3e3e}
+.nVar_News span{background:url(../iCon/news.png);display:inline-block; width:25px; height:25px; float:left; margin-right:10px; background-size:100%} 
+ .Tear_News{ width:100%; height:auto; float:left; margin:0px; padding:7px 0px; border-bottom:1px #e5e5e5 dashed}
+ .Tear_News img{ width:80px; height:auto; float:left; margin:0px 10px 5px 0px}
+.Tear_News a.Name{font-size:14px; color:#0063a4; margin:5px; display:block; font-weight:bold}
+.Tear_News .date .iCon{ width: 14px;
+    height: 11px;
+    background: url(../iCon/icon_calendar.png) no-repeat;
+    display:inline-block;
+    margin-right: 7px;}
+.Tear_News .date{color: #989898;
+    padding: 5px 0px;
+    padding-right: 15px;
+    vertical-align: baseline;
+    font-size: 10px; display:block}
+.Tear_News  .des{font-size:14px; color:#3e3e3e; margin:5px; display:block}
+
+.Cate {
+    color: #989898;
+    padding: 5px 0px;
+    padding-right: 15px;
+    vertical-align: baseline; margin-left:5px
+}
+.toolbar span{ font-size:14px; color:#999; margin:5px 10px 0px 0px; display:inline-block}
+ 
+.nVar_NewsDetail{ width:100%; height:auto; margin:0px; border-bottom:1px solid #e5e5e5}
+.nVar_NewsDetail h1{font-weight:normal; margin:0px 0px 0px 5px; text-transform:uppercase; font-size:16px;  color:#3e3e3e}
+.toolbar{ width:100%; height:auto;  margin:1px 0px 7px 0px; clear:both}
+.NewsDetail{width:100%; height:auto; float:left; margin:10px 0px; font-size:14px; line-height:20px; text-align:justify}
+.NewsDetail .Des_Detail{  height:auto; float:left; margin:0px; text-indent:15px; font-weight:bold; padding:5px}
+.NewsDetail .Content_Detail{ clear:both; height:auto; padding:5px; font-size:14px; line-height:23px}  
+.NewsDetail .Content_Detail img{max-width:100%; height:auto !important}
+.Tag{    width: 100%;
+    height: auto;
+    min-height: 20px;
+    padding: 3px 0px;
+    display: inline-block;
+    line-height: 20px;}
+.Tag span {
+    background-color: #222222;
+    padding: 5px 9px;
+    color: #fff;
+    display: block;
+    text-transform: uppercase;
+    line-height: 10px;
+    float: left;
+    margin: 3px; float:left
+}
+.Tag h2{float:left;font-weight:normal; margin:0px; border:none !important}
+.Tag a {
+    display: block;
+    float: left;
+    border: 1px solid #ededed;
+    margin-left: 4px;
+    line-height: 10px;
+    color: #4e4e4e !important;
+    padding: 5px 8px;
+    margin: 2px;
+    font-size: 11px;
+    display: inline-block;
+}
+.Tintuclienquan{width:100%; height:auto; float:left; margin:10px 0px; 0px; border-top:1px solid #e5e5e5; padding-top:5px }
+.Tintuclienquan .Name{font-size:14px; font-weight:bold; display:block; margin:5px}
+.Tintuclienquan .Content_Tintuclienquan{width:100%; height:auto; float:left; margin:5px 0px}
+.Tintuclienquan .Content_Tintuclienquan ul{width:100%; height:auto; float:left; margin:0px}
+.Tintuclienquan .Content_Tintuclienquan ul li a{font-size:14px; color:#3e3e3; margin:5px; display:block;     background:url(../iCon/icon-list.jpg) left center no-repeat;
+    padding-left: 20px; color:#3e3e3e}
+ .Lienquan{ width:auto; clear:both; height:auto; margin:5px 0px; padding:5px 5px; line-height:normal; background:#fafafa}
+ .Lienquan a{font-size:14px; font-style:italic; color:#3e3e3e; margin:3px; display:block}
+ 
+.nVar_2{width:100%; height:auto; float:left; margin:10px 0px}
+.nVar_2 span{font-size:15px; display:block; color:#000;font-family:"Open Sans",sans-serif; text-transform:uppercase; font-weight:bold}
+#ConmentFacebook{width:100%; height:auto; float:left; margin:10px 0px}

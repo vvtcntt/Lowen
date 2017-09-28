@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+@model LOWEN.Models.tblNew
+<div id="content">
+    <div class="nvar">
+        <nav>
+            <ul>
+                
+               
+
+            </ul>
+        </nav>
+    </div>
+    <div id="News">
+
+         
+             <div class="nVar_NewsDetail">
+                <h1>@Model.Name</h1>
+                <div class="Clear"></div>
+                <div class="toolbar">
+                    <span>
+                        <i class="fa fa-folder-open-o" aria-hidden="true"></i>
+                        @Html.Raw(ViewBag.NameMenu)
+                    </span><span class="Cata">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        Thời gian gửi: @Model.DateCreate
+                    </span><span class="Account">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        @Html.Raw(ViewBag.Username)
+                    </span>
+                </div>
+            </div>
+            <div class="NewsDetail">
+                <div class="Des_Detail">
+                    @Html.Raw(Model.Description)
+
+                </div>
+                <div class="Lienquan">
+                    @Html.Raw(ViewBag.chuoinew)
+                </div>
+                <div class="Content_Detail">
+                    @Html.Raw(Model.Content)
+                </div>
+                <div class="Tag"> <span>Tags</span>  @Html.Raw(ViewBag.chuoitag)</div>
+            </div>
+            <div id="Comment">
+                <div class="nVar_2">
+                    <span>
+                        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                        Nhận xét đánh giá
+                    </span>
+                </div>
+
+                <div id="ConmentFacebook"></div>
+            </div>
+            <div class="Tintuclienquan">
+                <span class="Name">Tin tức liên quan</span>
+                <div class="Content_Tintuclienquan">
+                    <ul>
+                        @Html.Raw(ViewBag.chuoinewnews)
+                    </ul>
+                </div>
+            </div>
+     </div>
+</div>

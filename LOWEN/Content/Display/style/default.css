@@ -47,7 +47,7 @@ header #top #contentTop #menuTop ul li:last-child{border-right:none}
 	
 	width:auto; 
 	float:left; 
-	margin:0px auto;
+	margin:0px auto; position:relative
 	
 }
 #banner #contentBanner #menuLeft ul li a{
@@ -61,10 +61,14 @@ header #top #contentTop #menuTop ul li:last-child{border-right:none}
 	font-size:17px
 	
 }
+#banner #contentBanner #menuLeft ul li:hover .ul2{display:block}
 #banner #contentBanner #menuLeft ul li:last-child a
 {
 	margin-right:0px
 }
+#banner #contentBanner #menuLeft ul li .ul2{width:230px; height:auto; float:left; position:absolute; background:#FFF; padding:5px; z-index:1000; display:none}
+#banner #contentBanner #menuLeft ul li .ul2 li{ width:100%; float:left; margin:0px; position:relative; border-bottom:1px dashed #eceaea}
+#banner #contentBanner #menuLeft ul li .ul2 li a{ margin:0px; padding:5px; text-transform:none !important; font-size:16px !important}
 #banner #contentBanner #logo{
 	
 	width:20%; 
@@ -73,6 +77,10 @@ header #top #contentTop #menuTop ul li:last-child{border-right:none}
 	margin:0px
 	
 }
+#banner #contentBanner #menuLeft ul li .ul2 li ul{ width:100%; height:auto; float:left; padding:5px; background:#FFF; position:absolute; left:100%; top:0px;background:#f8f8f8; display:none}
+#banner #contentBanner #menuLeft ul li .ul2 li:hover ul{display:block}
+#banner #contentBanner #menuLeft ul li .ul2 li ul li a{font-size:16px !important; color:#000; }
+#banner #contentBanner #menuLeft ul li .ul2 li:hover{background:#f8f8f8}
 #banner #contentBanner #logo a img{ 
 
 	width:240px; 
@@ -84,7 +92,7 @@ header #top #contentTop #menuTop ul li:last-child{border-right:none}
 }
 #banner #contentBanner #menuRight{ width:40%; height:auto; float:left; margin:0px}
 #banner #contentBanner #menuRight .ul1{width:auto; height:auto; float:left; margin:0px}
-#banner #contentBanner #menuRight .ul1 li{float:left; margin:0px; padding-left:45px}
+#banner #contentBanner #menuRight .ul1 li{float:left; margin:0px; padding-left:45px }
 #banner #contentBanner #menuRight .ul1 li a{font-family:"Open Sans",sans-serif; 
 	margin:35px 25px 35px 0px; 
 	text-transform:uppercase; 
@@ -92,11 +100,10 @@ header #top #contentTop #menuTop ul li:last-child{border-right:none}
 	font-weight:bold; 
 	color:#1d1d1d; 
 	font-size:17px}
- 
-#boxSearch{width:auto; height:auto; float:left; margin:0px}
+ #boxSearch{width:auto; height:auto; float:left; margin:0px}
 #boxSearch .boxSearch{width:230px; height:40px; background:#f5f5f5; float:left; margin:30px 0px 0px 15px}
-#boxSearch .boxSearch .txtSearch{width:85%; height:100%; border:none; background-color:transparent; float:left; text-indent:20px} 
-#boxSearch .boxSearch .btnSearch{width:14%; height:100%; float:left; background-color:transparent; border:none; text-align:center}
+#boxSearch .boxSearch .txtSearch{width:85%; height:40px; border:none; background-color:transparent; float:left; text-indent:20px} 
+#boxSearch .boxSearch .btnSearch{width:14%; height:40px; float:left; background-color:transparent; border:none; text-align:center}
 #banner #contentBanner #order{width:auto; height:50px; float:right; margin:0px}
 #banner #contentBanner #order .orderDetail{font-size:40px; color:#323232; margin:28px 0px; display:block; position:relative}
 #banner #contentBanner #order span{position:absolute; background:#1b323b; color:#FFF; padding:4px 5px; border-radius:50%; top:-11px; right:-16px; font-size:14px}
@@ -130,10 +137,10 @@ section{width:100%; height:auto; float:left; margin:0px}
 #contentIntroduction .name{
 color:#acacac; margin:10px; text-align:center ; display:block;   font-size:30px;font-family: 'Saira', sans-serif
 }
-#contentIntroduction .intro1{    color: #353535;
+#contentIntroduction h4{    color: #353535;
     font-size: 24px; margin:0px 20px;  padding:10px; text-transform:uppercase;font-family:"Open Sans",sans-serif
 }
-#contentIntroduction .intro2{    color: #939393; font-size:25px;
+#contentIntroduction p{    color: #939393; font-size:25px;
    margin:0px 20px;  padding:10px;font-family: 'Nunito Sans', sans-serif;
 ;
 ; text-align:justify

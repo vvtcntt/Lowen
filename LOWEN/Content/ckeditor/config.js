@@ -1,11 +1,9 @@
-﻿/**
+/**
  * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
-CKEDITOR.editorConfig = function (config) {
-
-
+CKEDITOR.editorConfig = function( config ) {
     config.enterMode = CKEDITOR.ENTER_BR;
     config.toolbar = 'Full';
     config.filebrowserBrowseUrl = '/Content/ckfinder/ckfinder.html';
@@ -14,6 +12,4 @@ CKEDITOR.editorConfig = function (config) {
     config.filebrowserUploadUrl = '/Content/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Files';
     config.filebrowserImageUploadUrl = '/Content/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Images';
     config.filebrowserFlashUploadUrl = '/Content/ckfinder/core/connector/aspx/connector.aspx?command=QuickUpload&type=Flash';
-    // Chú ý cần chỉ đường dẫn tới file ckfinder chính xác,ở đây file ckfinder nằm trong thư mục:/Scripts/ckfinder
-
 };

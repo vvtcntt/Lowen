@@ -400,13 +400,7 @@ namespace LOWEN.Controllers.Admin.Product
                         ViewBag.Ord = pro[0].Ord + 1;
                 }
 
-                string chuoifun = "";
-                var listFunction = db.tblFunctionProducts.Where(p => p.Active == true).OrderBy(p => p.Ord).ToList();
-                for (int i = 0; i < listFunction.Count; i++)
-                {
-                    chuoifun += "<label><input style=\"margin:0px !important\" type=\"checkbox\" name=\"chkFun+" + listFunction[i].id + "\" id=\"chkFun+" + listFunction[i].id + "\" class=\"chkFuc\" /> " + listFunction[i].Name + "</label></br>";
-                }
-                ViewBag.chuoifun = chuoifun;
+                
                 //Load chức năng
                 string chuoicolor = "";
                 var listcolor = db.tblColorProducts.Where(p => p.Active == true).OrderBy(p => p.Ord).ToList();
@@ -443,6 +437,7 @@ namespace LOWEN.Controllers.Admin.Product
                 tblproduct.Tag = StringClass.NameToTag(tblproduct.Name);
                 tblproduct.DateCreate = DateTime.Now;
                 tblproduct.Visit = 0;
+                
                 string[] listarray = tblproduct.ImageLinkDetail.Split('/');
                 string ImageLinkDetail = Collection["ImageLinkDetail"];
                 string imagethum = listarray[listarray.Length - 1];
@@ -450,7 +445,7 @@ namespace LOWEN.Controllers.Admin.Product
                 db.tblProducts.Add(tblproduct);
                 db.SaveChanges();
                 var listprro = db.tblProducts.OrderByDescending(p => p.id).Take(1).ToList();
-                clsSitemap.CreateSitemap("1/" + tblproduct.Tag + "-" + listprro[0].id+ ".aspx", listprro[0].id.ToString(), "Product");
+                clsSitemap.CreateSitemap( tblproduct.Tag + ".htm", listprro[0].id.ToString(), "Product");
                 #region[Updatehistory]
                 Updatehistoty.UpdateHistory("Create Product", Request.Cookies["Username"].Values["Username"].ToString(), Request.Cookies["Username"].Values["UserID"].ToString());
                 #endregion
@@ -526,24 +521,7 @@ namespace LOWEN.Controllers.Admin.Product
                         }
                     }
                 }
-                foreach (string key in Request.Form)
-                {
-                    var checkbox = "";
-                    if (key.StartsWith("chkFun+"))
-                    {
-                        checkbox = Request.Form["" + key];
-                        if (checkbox != "false")
-                        {
-                            Int32 idkey = Convert.ToInt32(key.Remove(0, 7));
-                            tblConnectFunProuduct connectionfunction = new tblConnectFunProuduct();
-                            connectionfunction.idFunc = idkey;
-                            connectionfunction.idPro = idp;
-                            db.tblConnectFunProuducts.Add(connectionfunction);
-                            db.SaveChanges();
-
-                        }
-                    }
-                }
+                
                 foreach (string key in Request.Form)
                 {
                     var checkbox = "";
@@ -562,6 +540,22 @@ namespace LOWEN.Controllers.Admin.Product
                         }
                     }
                 }
+                  //Thêm mới tagProduct
+                string tabs = tblproduct.Keyword;
+                string[] mangKeyword = tabs.Split(',');
+                for (int i = 0; i < mangKeyword.Length; i++)
+                {
+                    if (mangKeyword[i] != null && mangKeyword[i] != "")
+                    {
+                        tblProductTag tblproductTag = new tblProductTag();
+                        tblproductTag.idp = listprro[0].id;
+                        tblproductTag.Name = mangKeyword[i];
+                        tblproductTag.Tag = StringClass.NameToTag(mangKeyword[i]);
+                        db.tblProductTags.Add(tblproductTag);
+                        db.SaveChanges();
+                    }
+                }
+                 
                 if (Collection["btnSave"] != null)
                 {
                     Session["Thongbao"] = "<div  class=\"alert alert-info alert1\">Bạn đã thêm sản phẩm thành công !<button class=\"close\" data-dismiss=\"alert\">×</button></div>";
@@ -762,19 +756,8 @@ namespace LOWEN.Controllers.Admin.Product
                 {
                     Mang.Add(int.Parse(Listconnectcre[i].idCri.ToString()));
                 }
-                string chuoifuc = "";
-                var listFunction = db.tblFunctionProducts.Where(p => p.Active == true).OrderBy(p => p.Ord).ToList();
-                for (int i = 0; i < listFunction.Count; i++)
-                {
-                    int idFunc = int.Parse(listFunction[i].id.ToString());
-                    var listConnec = db.tblConnectFunProuducts.Where(p => p.idPro == id && p.idFunc == idFunc).ToList();
-                    if (listConnec.Count > 0)
-                        chuoifuc += "<label><input type=\"checkbox\" style=\"margin:0px !important\"   name=\"chkFun+" + listFunction[i].id + "\" id=\"chkFun+" + listFunction[i].id + "\" class=\"chkFuc\" checked=\"checked\" /> " + listFunction[i].Name + "</label></br>";
-                    else
-                        chuoifuc += "<label><input type=\"checkbox\" style=\"margin:0px !important\"   name=\"chkFun+" + listFunction[i].id + "\" id=\"chkFun+" + listFunction[i].id + "\" class=\"chkFuc\" /> " + listFunction[i].Name + "</label></br>";
+               
 
-                }
-                ViewBag.chuoifun = chuoifuc;
 
 
                 string chuoicolor = "";
@@ -923,7 +906,7 @@ namespace LOWEN.Controllers.Admin.Product
                     {
                         tblproduct.Tag = StringClass.NameToTag(tblproduct.Name);
                         var GroupProduct = db.tblGroupProducts.Find(idCate);
-                        clsSitemap.UpdateSitemap("1/" + tblproduct.Tag + "-" + id + ".aspx", id.ToString(), "Product");
+                        clsSitemap.UpdateSitemap( tblproduct.Tag + ".htm", id.ToString(), "Product");
 
                     }
                     else
@@ -931,12 +914,12 @@ namespace LOWEN.Controllers.Admin.Product
                         tblproduct.Tag = collection["NameURL"];
                         var GroupProduct = db.tblGroupProducts.Find(idCate);
 
-                        clsSitemap.UpdateSitemap("1/" + tblproduct.Tag + "-" + id + ".aspx", id.ToString(), "Product");
+                        clsSitemap.UpdateSitemap( tblproduct.Tag + ".htm", id.ToString(), "Product");
                     }
                     if (Session["Price"] == "1")
                     {
                         var getHtmlWeb = new HtmlWeb();
-                         var listconnectweb = db.tblConnectWebs.Where(p => p.idCate == idCate).ToList();
+                        var listconnectweb = db.tblConnectWebs.Where(p => p.idCate == idCate).ToList();
                         List<int> Mang = new List<int>();
                         for (int i = 0; i < listconnectweb.Count; i++)
                         {
@@ -1066,33 +1049,8 @@ namespace LOWEN.Controllers.Admin.Product
                         }
                     }
 
-                    var listconnect = db.tblConnectFunProuducts.Where(p => p.idPro == id).ToList();
-                    for (int i = 0; i < listconnect.Count; i++)
-                    {
-                        int idchk = int.Parse(listconnect[i].id.ToString());
-                        tblConnectFunProuduct image = db.tblConnectFunProuducts.Find(idchk);
-                        db.tblConnectFunProuducts.Remove(image);
-                        db.SaveChanges();
-                    }
-                   
-                        foreach (string key in Request.Form)
-                        {
-                            var checkbox = "";
-                            if (key.StartsWith("chkFun+"))
-                            {
-                                checkbox = Request.Form["" + key];
-                                if (checkbox != "false")
-                                {
-                                    Int32 idkey = Convert.ToInt32(key.Remove(0, 7));
-                                    tblConnectFunProuduct connectionfunction = new tblConnectFunProuduct();
-                                    connectionfunction.idFunc = idkey;
-                                    connectionfunction.idPro = id;
-                                    db.tblConnectFunProuducts.Add(connectionfunction);
-                                    db.SaveChanges();
-
-                                }
-                            }
-                        }
+                    
+                       
                     
                     var ListConnectcolor = db.tblConnectColorProducts.Where(p => p.idPro == id).ToList();
                     for (int i = 0; i < ListConnectcolor.Count; i++)
@@ -1122,7 +1080,29 @@ namespace LOWEN.Controllers.Admin.Product
                                 }
                             }
                         }
-                     
+                    var listProductTag = db.tblProductTags.Where(p => p.idp == id).ToList();
+                    for (int i = 0; i < listProductTag.Count; i++)
+                    {
+                        int ids = listProductTag[i].id;
+                        tblProductTag tblproducttag = db.tblProductTags.Find(ids);
+                        db.tblProductTags.Remove(tblproducttag);
+                        db.SaveChanges();
+
+                    }
+                    string nkeyword = collection["Keyword"]; ;
+                    string[] mangKeyword = nkeyword.Split(',');
+                    for (int i = 0; i < mangKeyword.Length; i++)
+                    {
+                        if (mangKeyword[i] != null && mangKeyword[i] != "")
+                        {
+                            tblProductTag tblproductTag = new tblProductTag();
+                            tblproductTag.idp = id;
+                            tblproductTag.Name = mangKeyword[i];
+                            tblproductTag.Tag = StringClass.NameToTag(mangKeyword[i]);
+                            db.tblProductTags.Add(tblproductTag);
+                            db.SaveChanges();
+                        }
+                    }
                 }
                 if (collection["btnSave"] != null)
                 {

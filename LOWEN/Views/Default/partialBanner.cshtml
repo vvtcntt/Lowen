@@ -24,9 +24,14 @@
     <div id="contentBanner">
         <div id="menuLeft">
             <ul class="ul1">
-                <li class="li1"><a href="#" title="Sản phẩm">Sản phẩm</a></li>
+                <li class="li1"><a href="#" title="Sản phẩm">Sản phẩm</a>
+                    <ul class="ul2">
+                        @Html.Raw(ViewBag.result)
+                       
+                    </ul>
+                </li>
                 <li class="li1"><a href="/dich-vu" title="Dịch vụ">Dịch vụ</a></li>
-                <li class="li1"><a href="/Hệ thống phân phối" title="Hệ thống phân phối">Hệ thống phân phối</a></li>
+                <li class="li1"><a href="/he-thong-phan-phoi" title="Hệ thống phân phối">Hệ thống phân phối</a></li>
             </ul>
         </div>
         <div id="logo">
@@ -38,15 +43,25 @@
             </ul>
             <div id="boxSearch">
                 <div class="boxSearch">
-                    <input type="search" name="txtSearch" id="txtSearch" class="txtSearch" placeholder="Search" />
-                    <button type="submit" id="btnSubmit" class="btnSearch" name="btnSubmit">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </button>
+                    @using (Html.BeginForm("CommandSearch", "default", FormMethod.Post))
+                    {
+                        <input type="search" name="txtSearch" id="txtSearch" class="txtSearch" placeholder="Search" />
+                        <button type="submit" id="btnSubmit" class="btnSearch" name="btnSubmit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    }
                 </div>
             </div>
             <div id="order">
-                <a href="" class="orderDetail">
-                    <i class="fa fa-cart-plus" aria-hidden="true"></i><span class="orderCount">0</span>
+                <a href="/gio-hang" class="orderDetail" title="giỏ hàng">
+                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                    @if (Session["soluong"] != "" && Session["soluong"] != null)
+                    {
+                    <span class="orderCount">@Session["soluong"].ToString()</span>
+                    }
+                    else
+                    {
+                        <span class="orderCount">0</span>
+
+                    }
                 </a>
             </div>
         </div>

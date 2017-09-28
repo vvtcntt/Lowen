@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+@using PagedList.Mvc;
+@model PagedList.IPagedList <LOWEN.Models.tblNew >
+    <div id = "content" >
+    <div class="nvar">
+        <div class="nvar">
+            <nav>
+                <ul>
+                    @Html.Raw(ViewBag.nUrl)
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div id="News">
+        <div id="LeftNews">
+            @{Html.RenderAction("partialLeftNews", "news");}
+        </div>
+        <div id="RightNews">
+            <div class="nVar_News">
+                <h1><i class="fa fa-newspaper-o" aria-hidden="true"></i>  @Html.Raw(ViewBag.Name)</h1>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="Tear_News">
+                    <a href="/news/@item.Tag" title="@item.Name"><img src="@item.Images" alt="@item.Name" title="@item.Name" /></a>
+                    <a href="/news/@item.Tag" title="@item.Name">@item.Name</a>
+                    <span class="date"><span class="iCon"></span>Thời gian gửi : @item.DateCreate</span>
+                    <span class="des">
+                        @item.Description
+                    </span>
+                </div>
+            }
+            @Html.PagedListPager(Model, page => Url.Action("listNews", new { page = page, sortOrder = ViewBag.CurrentSortOrder, sortName = ViewBag.CurrentSortName, sortLevel = ViewBag.CurrentSortLevel }), (PagedListRenderOptions)ViewBag.ship)
+        </div>
+    </div>
+</div>
