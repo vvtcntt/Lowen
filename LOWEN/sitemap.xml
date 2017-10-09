@@ -105,4 +105,9 @@
     <id>9</id>
     <type>GroupProduct</type>
   </url>
+  <url xmlns="">
+    <loc>http://Lowen.vn/2/df-4.aspx</loc>
+    <id>4</id>
+    <type>News</type>
+  </url>
 </urlset>

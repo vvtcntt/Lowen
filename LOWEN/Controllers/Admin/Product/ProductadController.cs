@@ -419,7 +419,6 @@ namespace LOWEN.Controllers.Admin.Product
         }
         [HttpPost]
         [ValidateInput(false)]
-
         public ActionResult Create(tblProduct tblproduct, FormCollection Collection, string id, List<HttpPostedFileBase> uploadFile, List<HttpPostedFileBase> uploadFiles)
         {
             if ((Request.Cookies["Username"] == null))
@@ -844,6 +843,9 @@ namespace LOWEN.Controllers.Admin.Product
                     string Content = collection["Content"];
                     string Parameter = collection["Parameter"];
                     string ImageLinkDetail = collection["ImageLinkDetail"];
+                    string FilesQuote = collection["FilesQuote"];
+                    string FilesGuide = collection["FilesGuide"];
+                    string NoteWarranty = collection["NoteWarranty"];
                     string[] listarray = ImageLinkDetail.Split('/');
                     string imagethum = listarray[listarray.Length - 1];
                     tblproduct.ImageLinkThumb = "/Images/_thumbs/Images/" + imagethum;
@@ -888,6 +890,9 @@ namespace LOWEN.Controllers.Admin.Product
                     tblproduct.ProductSale = ProductSale;
                     tblproduct.Content = Content;
                     tblproduct.Size = Size;
+                    tblproduct.NoteWarranty = NoteWarranty;
+                    tblproduct.FilesGuide = FilesGuide;
+                    tblproduct.FilesQuote = FilesQuote;
                     tblproduct.Parameter = Parameter;
                     tblproduct.ImageLinkDetail = ImageLinkDetail;
                     tblproduct.Vat = Vat;

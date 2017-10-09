@@ -182,6 +182,7 @@
     <Compile Include="Controllers\Admin\Config\ConfigController.cs" />
     <Compile Include="Controllers\Admin\Criteria\CriteriaController.cs" />
     <Compile Include="Controllers\Admin\Criteria\InfoCriteriaController.cs" />
+    <Compile Include="Controllers\Admin\Files\filesController.cs" />
     <Compile Include="Controllers\Admin\Hotline\HotlineController.cs" />
     <Compile Include="Controllers\Admin\Images\GroupImagesController.cs" />
     <Compile Include="Controllers\Admin\Images\ImagesadController.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Controllers\Admin\WebSites\WebController.cs" />
     <Compile Include="Controllers\Display\contact\contactController.cs" />
     <Compile Include="Controllers\Display\DefaultController.cs" />
+    <Compile Include="Controllers\Display\download\downloadController.cs" />
     <Compile Include="Controllers\Display\news\newsController.cs" />
     <Compile Include="Controllers\Display\product\OrderController.cs" />
     <Compile Include="Controllers\Display\product\productController.cs" />
@@ -1341,7 +1343,11 @@
     <Content Include="Content\Display\images\bg_about_area_pc.png" />
     <Content Include="Content\Display\images\bg_slide.jpg" />
     <Content Include="Content\Display\images\bg_slide1.jpg" />
+    <Content Include="Content\Display\images\calendar.png" />
+    <Content Include="Content\Display\images\chat.png" />
     <Content Include="Content\Display\images\geography-lightgray.png" />
+    <Content Include="Content\Display\images\hinhtron.png" />
+    <Content Include="Content\Display\images\InternetSlowdown_Day.gif" />
     <Content Include="Content\Display\images\logo.png" />
     <Content Include="Content\Display\images\ppyb1710hpwe_1.jpg" />
     <Content Include="Content\Display\images\quote.png" />
@@ -1353,15 +1359,19 @@
     <Content Include="Content\Display\productList.html" />
     <Content Include="Content\Display\scripts\jquery-1.9.0.min.js" />
     <Content Include="Content\Display\scripts\jquery.nivo.slider.js" />
+    <Content Include="Content\Display\scripts\popup.js" />
     <Content Include="Content\Display\scripts\Scroll.js" />
+    <Content Include="Content\Display\style\Call.css" />
     <Content Include="Content\Display\style\contact.css" />
     <Content Include="Content\Display\style\contact_Rs.css" />
     <Content Include="Content\Display\style\default.css" />
+    <Content Include="Content\Display\style\download.css" />
     <Content Include="Content\Display\style\font-awesome.min.css" />
     <Content Include="Content\Display\style\news.css" />
     <Content Include="Content\Display\style\nivo-slider.css" />
     <Content Include="Content\Display\style\Order.css" />
     <Content Include="Content\Display\style\Order_Rs.css" />
+    <Content Include="Content\Display\style\Popup.css" />
     <Content Include="Content\Display\style\product.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
@@ -1602,6 +1612,10 @@
     <Content Include="Views\Videoad\Index.cshtml" />
     <Content Include="Views\Videoad\View1.cshtml" />
     <Content Include="Views\Default\partialdefault.cshtml" />
+    <Content Include="Views\files\Index.cshtml" />
+    <Content Include="Views\files\Create.cshtml" />
+    <Content Include="Views\files\Edit.cshtml" />
+    <Content Include="Views\download\listDownload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

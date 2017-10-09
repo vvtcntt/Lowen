@@ -43,7 +43,7 @@
                         <table>
                             <tbody>
                                 <tr><td>Mã sản phẩm</td><td>@Model.Code</td></tr>
-                                <tr><td>Bảo hành</td><td>@Model.Warranty năm</td></tr>
+                                <tr><td>Bảo hành</td><td>@Model.Warranty năm @Model.NoteWarranty</td></tr>
                                 <tr><td>Kích thước</td><td>@Model.Size mm</td></tr>
                                 @Html.Raw(ViewBag.resultCriteria)
                             </tbody>
@@ -55,11 +55,11 @@
                         <span>Tải về</span>
                     </div>
                     <div id="contentDownload">
-                        <a title="" href="">
+                        <a title="tải bản vẽ kỹ thuật @Model.Name" href="@Model.FilesQuote">
                             <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                             Bản vẽ kỹ thuật
                         </a>
-                        <a title="" href="">
+                        <a title="tải hướng dẫn sử dụng @Model.Name" href="@Model.FilesGuide">
                             <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
                             Hướng dẫn sử dụng
                         </a>

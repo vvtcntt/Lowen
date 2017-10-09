@@ -1,5 +1,7 @@
 ﻿using LOWEN.Models;
+using System;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Web.Mvc;
 
@@ -128,5 +130,48 @@ namespace LOWEN.Controllers.Display
             ViewBag.chuoi = chuoi;
             return PartialView(db.tblConfigs.First());
         }
+        public ActionResult CommandCall(string phone, string content)
+        {
+            string result = "";
+            if (phone != null && phone != "")
+            {
+
+                var config = db.tblConfigs.First();
+                var fromAddress = config.UserEmail;
+                string fromPassword = config.PassEmail;
+                var toAddress = config.Email;
+                MailMessage mailMessage = new MailMessage(fromAddress, toAddress);
+                mailMessage.Subject = "Bạn nhận yêu cầu gọi điện thiết bị vệ sinh Lowen lúc " + DateTime.Now + "";
+                mailMessage.Body = "Số điện thoại " + phone + ", nội dung " + content + "";
+                //try
+                //{
+
+                SmtpClient smtpClient = new SmtpClient();
+                //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.EnableSsl = true;
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.Port = 587;
+
+                smtpClient.Credentials = new System.Net.NetworkCredential()
+                {
+                    UserName = fromAddress,
+                    Password = fromPassword
+                };
+                //smtpClient.UseDefaultCredentials = false;
+                smtpClient.Send(mailMessage);
+                result = "Bạn đã yêu cầu gọi điện thành công, bạn vui lòng cầm điện thoại trong khoảng 2-5 phút, chúng tôi sẽ liên hệ với bạn ngay !";
+            }
+
+            //}
+            //catch(Exception ex)
+            //{
+            //    result = "Rất tiếc hiện chúng tôi không thể gọi cho bạn được, bạn có thể liên hệ qua hotline ở trên !" + ex;
+            //}
+
+
+            return Json(new { result = result });
+
+        }
+
     }
 }

@@ -1,0 +1,21 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+
+<div id="content">
+    <div class="nvar">
+        <nav>
+            <ul>
+                <li><a href="" title="">Trang chủ</a></li>
+                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                <li><a href="/tai-ve" title="">Tải về</a></li>
+               
+
+            </ul>
+        </nav>
+    </div>
+    <div id="download">
+        @Html.Raw(ViewBag.result)
+    </div>
+</div>

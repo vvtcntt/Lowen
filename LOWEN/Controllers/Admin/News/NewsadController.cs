@@ -338,6 +338,7 @@ namespace LOWEN.Controllers.Admin.News
                 tblnews.DateCreate = DateTime.Now;
                  string idUser = Request.Cookies["Username"].Values["UserID"];
                 tblnews.idUser = int.Parse(idUser);
+                db.tblNews.Add(tblnews);
                 db.SaveChanges();
                 var listprro = db.tblNews.OrderByDescending(p => p.id).Take(1).ToList();
                 clsSitemap.CreateSitemap("2/" + tblnews.Tag+"-"+listprro[0].id+".aspx", listprro[0].id.ToString(), "News");

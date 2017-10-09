@@ -141,7 +141,6 @@ namespace LOWEN.Controllers.Display.Product
                     chuoihtml += "<div style=\" width:100%; margin:15px 0px\">";
                     chuoihtml += "<div style=\"width:100%; height:auto; float:left; margin:0px; border:1px solid #d5d5d5\">";
                     chuoihtml += "<div style=\" width:100%; height:30px; float:left; background:#1c7fc4; font-size:12px; color:#FFF; text-indent:15px; line-height:30px\">    	Thông tin người gửi     </div>";
-
                     chuoihtml += "<div style=\"width:100%; height:auto; float:left\">";
                     chuoihtml += "<p style=\"font-size:12px; margin:5px 10px\">Họ và tên :<span style=\"font-weight:bold\"> " + Name + "</span></p>";
                     chuoihtml += "<p style=\"font-size:12px; margin:5px 10px\">Địa chỉ :<span style=\"font-weight:bold\"> " + Address + "</span></p>";
@@ -426,6 +425,7 @@ namespace LOWEN.Controllers.Display.Product
                 Sanpham.Price = int.Parse(Product.Price.ToString());
                 Sanpham.Ord = Ord;
                 Sanpham.Name = Product.Name;
+                Sanpham.Images = Product.ImageLinkThumb;
                 Sanpham.SumPrice = Sanpham.Price * Sanpham.Ord;
                 Sanpham.Tag = Product.Tag;
                 Sopping.CartItem.Add(Sanpham);
@@ -568,8 +568,6 @@ namespace LOWEN.Controllers.Display.Product
             Session["giohang"] = Sopping;
             sl = Sopping.CartItem.Count;
             var s = (clsGiohang)Session["giohang"];
-
-
             Session["soluong"] = sl;
             var giohang = (clsGiohang)Session["giohang"];
             string chuoi = "";

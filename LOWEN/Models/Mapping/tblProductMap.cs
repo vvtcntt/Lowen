@@ -29,6 +29,15 @@ namespace LOWEN.Models.Mapping
             this.Property(t => t.Warranty)
                 .HasMaxLength(50);
 
+            this.Property(t => t.NoteWarranty)
+                .HasMaxLength(100);
+
+            this.Property(t => t.FilesQuote)
+                .HasMaxLength(50);
+
+            this.Property(t => t.FilesGuide)
+                .HasMaxLength(50);
+
             this.Property(t => t.Access)
                 .HasMaxLength(50);
 
@@ -67,6 +76,9 @@ namespace LOWEN.Models.Mapping
             this.Property(t => t.Group).HasColumnName("Group");
             this.Property(t => t.Vat).HasColumnName("Vat");
             this.Property(t => t.Warranty).HasColumnName("Warranty");
+            this.Property(t => t.NoteWarranty).HasColumnName("NoteWarranty");
+            this.Property(t => t.FilesQuote).HasColumnName("FilesQuote");
+            this.Property(t => t.FilesGuide).HasColumnName("FilesGuide");
             this.Property(t => t.Address).HasColumnName("Address");
             this.Property(t => t.Transport).HasColumnName("Transport");
             this.Property(t => t.Access).HasColumnName("Access");

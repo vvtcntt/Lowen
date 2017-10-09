@@ -40,6 +40,22 @@
             };
             finder.popup();
         });
+        $("#SelectFilesQuote").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#FilesQuote").val(fileUrl);
+            };
+            finder.popup();
+
+        });
+        $("#SelectFilesGuide").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#FilesGuide").val(fileUrl);
+            };
+            finder.popup();
+
+        });
         $("#drMenu").change(function () {
             var idCate = $("#drMenu").val();
             var id = $("#idProduct").val();
@@ -315,15 +331,17 @@
                                         Hướng dẫn sử dụng
                                     </td>
                                     <td>
-                                        <fieldset>
-                                            <label>Chọn ảnh: </label><br />
-                                            <div id="myinput" class="myinputs">
-                                                <input type="file" name="uploadFiles[0]" /><br />
-                                            </div>
-                                            <br />
-                                            <a class="btnAddNews" href="#">Thêm mới</a>
-                                            @{Html.RenderAction("ListFiles", "Productad");}
-                                        </fieldset>
+                                        @Html.TextBoxFor(p => p.FilesGuide, new { @class = "Name_ad" })&nbsp;<input id="SelectFilesGuide" type="button" value="Lựa chọn file hướng dẫn" class="Images_ad" />
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="key">
+                                        Bản vẽ kỹ thuật
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(p => p.FilesQuote, new { @class = "Name_ad" })&nbsp;<input id="SelectFilesQuote" type="button" value="Lựa chọn bản vẽ kỹ thuật" class="Images_ad" />
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -409,6 +427,27 @@
                                                 </p>
                                             </span>
                                         </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <tr>
+                                    <td class="key">
+                                        Chi chú bảo hành<span class="Required">*</span>
+                                    </td>
+                                    <td>
+                                        @Html.TextBoxFor(p => p.NoteWarranty, new { @class = "Name_ad txtName", @autofocus = "autofocus" })
+
+                                        <span class="tooltip-help">
+                                            <span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Ghi chú bảo hành
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Ghi chú bảo hành
+                                                </p>
+                                            </span>
+                                        </span>
+
                                     </td>
                                 </tr>
                                 <tr>
