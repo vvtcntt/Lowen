@@ -26,9 +26,15 @@
     <link href="~/Content/Display/style/contact_Rs.css" rel="stylesheet" />
     <link href="~/Content/Display/style/Call.css" rel="stylesheet" />
     <link href="~/Content/Display/style/Popup.css" rel="stylesheet" /><script src="~/Scripts/jquery-3.1.0.min.js"></script>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
     <script src="~/Content/Display/scripts/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+    </script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script src="~/Content/Display/scripts/Scroll.js"></script>
@@ -50,11 +56,7 @@
         @{ Html.RenderAction("partialFooter", "default");}
     </footer>
 </body>
-<script type="text/javascript">
-    $(window).load(function() {
-        $('#slider').nivoSlider();
-    });
-</script>
+ 
 <script type="text/javascript">
 
     function CreateOrder(id) {
