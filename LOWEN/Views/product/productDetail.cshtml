@@ -26,14 +26,14 @@
                 <h1>@Model.Name</h1>
                 <p class="price">
                     Giá bán lẻ : <strong>@String.Format("{0:#,#}", Model.Price) đ</strong>
-                    @if (Model.Vat == true)
+                    @*@if (Model.Vat == true)
                     {
                         <span>(Giá đã bao gồm VAT)</span>
 
                     }
                     else
                     {                 <span>(Giá chưa bao gồm VAT)</span>
-                    }
+                    }*@
                 </p>
                 <div id="parameter">
                     <div id="nvarParameter">
