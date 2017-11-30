@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1352,7 +1353,6 @@
     <Content Include="Content\Display\images\ppyb1710hpwe_1.jpg" />
     <Content Include="Content\Display\images\quote.png" />
     <Content Include="Content\Display\images\register.jpg" />
-    <Content Include="Content\Display\images\SOL848-1 - Copy.jpg" />
     <Content Include="Content\Display\images\sp1.jpg" />
     <Content Include="Content\Display\images\sp2.jpg" />
     <Content Include="Content\Display\product.html" />

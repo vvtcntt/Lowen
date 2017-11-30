@@ -14,8 +14,8 @@
 <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 <script type="text/javascript" src="scripts/Scroll.js"></script>
-
-
+<script type="text/javascript" src="scripts/prefixfree.js"></script>
+<link href="style/zoomImages.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 <header>
@@ -85,17 +85,26 @@
             </nav>
         </div>
         <div id="productDetail">
+        <script>
+        	function getImage(images,cl){
+				$(".imageDetail a").html('<img src='+images+' class="small" alt="" />');
+				$("."+cl).removeClass("setImages");
+				$("."+cl).addClass("setImages");
+ 				return true;
+			}
+        </script>
         	<div id="topProductDetail">
             	<div id="imgProductDetail">
-                	<div id="thumbs">
-                    	<a href="" title=""><img src="images/SOL848-1 - Copy.jpg" alt="" /></a>                   </div>
-                     <div id="listImageThumbs">
+                     <div class="imageDetail">
+                     	<a href="" title="" ><img src="images/SOL848.jpg" class="small" alt="" /></a>
+                    </div>      
+                      <div id="listImageThumbs">
                      	<ul>
-                        	<li><a href="" title=""><img src="images/sp1.jpg" alt="" /></a></li>
-                            <li><a href="" title=""><img src="images/sp1.jpg" alt="" /></a></li>
-                            <li><a href="" title=""><img src="images/sp1.jpg" alt="" /></a></li>
-                            <li><a href="" title=""><img src="images/sp1.jpg" alt="" /></a></li>
-                            <li><a href="" title=""><img src="images/sp1.jpg" alt="" /></a></li>
+                        	<li class="getImg1"><a  title="" onclick="javascript:return getImage('images/sp1.jpg','getImg1')"><img src="images/sp1.jpg" alt="" /></a></li>
+                            <li class="getImg2"><a href="" title=""><img src="images/sp1.jpg" alt="" /></a></li>
+                            <li class="getImg3"><a href="" title=""><img src="images/sp1.jpg" alt="" /></a></li>
+                            <li class="getImg4"><a href="" title=""><img src="images/sp1.jpg" alt="" /></a></li>
+                            <li class="getImg5"><a href="" title=""><img src="images/sp1.jpg" alt="" /></a></li>
                         </ul>
                      </div>
                 </div>
@@ -195,4 +204,45 @@ Công nghệ xả G-Max êm, mạnh mẽ hiệu quả
         $('#slider').nivoSlider();
     });
     </script>
+    <script type="text/javascript">
+$(document).ready(function(){
+
+	var native_width = 0;
+	var native_height = 0;
+
+	//Now the mousemove function
+	$(".magnify").mousemove(function(e){
+		if(!native_width && !native_height)
+		{
+			var image_object = new Image();
+			image_object.src = $(".small").attr("src");	
+			native_width = image_object.width;
+			native_height = image_object.height;
+		}
+		else
+		{
+			var magnify_offset = $(this).offset();			
+			var mx = e.pageX - magnify_offset.left;
+			var my = e.pageY - magnify_offset.top;			
+			if(mx < $(this).width() && my < $(this).height() && mx > 0 && my > 0)
+			{
+				$(".large").fadeIn(100);
+			}
+			else
+			{
+				$(".large").fadeOut(100);
+			}
+			if($(".large").is(":visible"))
+			{
+				var rx = Math.round(mx/$(".small").width()*native_width - $(".large").width()/2)*-1;
+				var ry = Math.round(my/$(".small").height()*native_height - $(".large").height()/2)*-1;
+				var bgp = rx + "px " + ry + "px";
+				var px = mx - $(".large").width()/2;
+				var py = my - $(".large").height()/2;
+				$(".large").css({left: px, top: py, backgroundPosition: bgp});
+			}
+		}
+	})
+})
+</script>
 </html>

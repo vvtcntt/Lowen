@@ -13,7 +13,7 @@
     <div id="productDetail">
         <div id="topProductDetail">
             <div id="imgProductDetail">
-                <div id="thumbs">
+                <div class="imageDetail">
                     <a href="#" title="@Model.Name"><img src="@Model.ImageLinkDetail" alt="@Model.Name" /></a>
                 </div>
                 <div id="listImageThumbs">
@@ -107,3 +107,11 @@
         </div>
     </div>
 </div>
+<script>
+        	function getImage(images,cl){
+				$(".imageDetail a").html('<img src='+images+' class="small" alt="" />');
+                $("#listImageThumbs ul li").removeClass("setImages");
+				$("."+cl).addClass("setImages");
+ 				return true;
+			}
+</script>
