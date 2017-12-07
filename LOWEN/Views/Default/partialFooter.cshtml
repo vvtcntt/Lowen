@@ -128,3 +128,7 @@
     }
 
 </script>
+@if(Request.Browser.IsMobileDevice==false)
+{
+    @Html.Raw(Model.CodeChat);
+}

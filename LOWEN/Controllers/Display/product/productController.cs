@@ -179,12 +179,17 @@ namespace LOWEN.Controllers.Display.product
             ViewBag.nUrl = "<ol itemscope itemtype=\"http://schema.org/BreadcrumbList\">   <li itemprop=\"itemListElement\" itemscope  itemtype=\"http://schema.org/ListItem\"> <a itemprop=\"item\" href=\"/\">  <span itemprop=\"name\">Trang chủ</span></a> <meta itemprop=\"position\" content=\"1\" />  </li>   ›" + UrlProduct(idCate) + "</ol> ";
             int id = product.id;
             StringBuilder resultImages = new StringBuilder();
-            resultImages.Append("<li class=\"getImg" + product.id + "\"><a href=\"javascript:;\" onclick=\"javascript:return getImage('" + product.ImageLinkDetail + "', 'getImg" + product.id + "')\" title=\"" + product.Name + "\"><img src=\"" +product.ImageLinkDetail + "\" alt=\"" + product.Name + "\" /></a></li>");
             var listImages = db.tblImageProducts.Where(p => p.idProduct == id).ToList();
-            for (int i = 0; i < listImages.Count; i++)
+            if(listImages.Count>0)
             {
-                resultImages.Append("<li class=\"getImg"+ listImages[i].id+ "\"><a href=\"javascript:;\" onclick=\"javascript:return getImage('" + listImages[i].Images+"', 'getImg"+listImages[i].id + "')\" title=\"" + product.Name + "\"><img src=\"" + listImages[i].Images + "\" alt=\"" + product.Name + "\" /></a></li>");
+                resultImages.Append("<li class=\"getImg" + product.id + "\"><a href=\"javascript:;\" onclick=\"javascript:return getImage('" + product.ImageLinkDetail + "', 'getImg" + product.id + "')\" title=\"" + product.Name + "\"><img src=\"" + product.ImageLinkDetail + "\" alt=\"" + product.Name + "\" /></a></li>");
+
+                for (int i = 0; i < listImages.Count; i++)
+                {
+                    resultImages.Append("<li class=\"getImg" + listImages[i].id + "\"><a href=\"javascript:;\" onclick=\"javascript:return getImage('" + listImages[i].Images + "', 'getImg" + listImages[i].id + "')\" title=\"" + product.Name + "\"><img src=\"" + listImages[i].Images + "\" alt=\"" + product.Name + "\" /></a></li>");
+                }
             }
+            
             ViewBag.resultImages = resultImages.ToString();
             var ListGroupCri = db.tblGroupCriterias.Where(p => p.idCate == idCate).ToList();
             List<int> Mang1 = new List<int>();
