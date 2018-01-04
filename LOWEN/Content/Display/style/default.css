@@ -223,7 +223,13 @@ header {
             float: left;
             margin: 0px;
         }
-
+         #banner #contentBanner #logo span{
+             font-size:14px;
+             font-style:italic;
+             color:#333;
+             text-align:center; margin:2px 0px;
+             display:block
+         }
         #banner #contentBanner #menuLeft ul li .ul2 li ul {
             width: 100%;
             height: auto;
