@@ -107,7 +107,7 @@ namespace LOWEN.Controllers.Display.product
                         result.Append("<a href=\"/" + listProduct[j].Tag + ".htm\" title=\"" + listProduct[j].Name + "\">" + listProduct[j].Name + "</a>");
                         result.Append("</h3>");
                         result.Append("<div class=\"boxPrice\">");
-                        result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProduct[j].Price) + "đ</span><a href=\"/gio-hang\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
+                        result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProduct[j].PriceSale) + "đ</span><a href=\"/gio-hang\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
                         result.Append("</div>");
                         result.Append("</div>");
                         result.Append("</div>");
@@ -142,7 +142,7 @@ namespace LOWEN.Controllers.Display.product
                     result.Append("<a href=\"/" + listProduct[j].Tag + ".htm\" title=\"" + listProduct[j].Name + "\">" + listProduct[j].Name + "</a>");
                     result.Append("</h3>");
                     result.Append("<div class=\"boxPrice\">");
-                    result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProduct[j].Price) + "đ</span><a href=\"/gio-hang\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
+                    result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProduct[j].PriceSale) + "đ</span><a href=\"/gio-hang\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
                     result.Append("</div>");
                     result.Append("</div>");
                     result.Append("</div>");
@@ -382,6 +382,8 @@ namespace LOWEN.Controllers.Display.product
 
         public ActionResult search(string tag, int? page)
         {
+            if (Session["Search"]!=null && Session["Search"]!="")
+            tag = Session["Search"].ToString();
             var listProduct = db.tblProducts.Where(p => p.Active == true && p.Name.Contains(tag)).ToList();
             const int pageSize = 20;
             var pageNumber = (page ?? 1);
@@ -465,7 +467,7 @@ namespace LOWEN.Controllers.Display.product
             result.Append(" </div>");
             ViewBag.nUrl = "<ol itemscope itemtype=\"http://schema.org/BreadcrumbList\">   <li itemprop=\"itemListElement\" itemscope  itemtype=\"http://schema.org/ListItem\"> <a itemprop=\"item\" href=\"/\">  <span itemprop=\"name\">Trang chủ</span></a> <meta itemprop=\"position\" content=\"1\" />  </li> " + tag + " </ol> ";
             ViewBag.result = result.ToString();
-
+            Session["Search"] = "";
             return View(listProduct.ToPagedList(pageNumber, pageSize));
         }
     }

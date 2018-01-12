@@ -26,6 +26,7 @@
                 <h1>@Model.Name</h1>
                 <p class="price">
                     Giá bán lẻ : <strong>@String.Format("{0:#,#}", Model.Price) đ</strong>
+                    Giá khuyến mại : <strong style="color:#ff0000; font-size:22px">@String.Format("{0:#,#}", Model.PriceSale) đ</strong>
                     @*@if (Model.Vat == true)
                     {
                         <span>(Giá đã bao gồm VAT)</span>
@@ -35,6 +36,7 @@
                     {                 <span>(Giá chưa bao gồm VAT)</span>
                     }*@
                 </p>
+                <p style="font-size:14px; color:#ff6a00; margin:5px 0px;">@Model.Sale</p>
                 <div id="parameter">
                     <div id="nvarParameter">
                         <span>Thông số kỹ thuật</span>
