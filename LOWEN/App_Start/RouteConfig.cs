@@ -18,7 +18,7 @@ namespace LOWEN
             routes.MapRoute("newsDetail", "news/{Tag}", new { controller = "news", action = "newsDetail", tag = UrlParameter.Optional }, new { controller = "^N.*", action = "^newsDetail$" });
             routes.MapRoute("TagNews", "TagNews/{Tag}", new { controller = "news", action = "TagNews", tag = UrlParameter.Optional }, new { controller = "^N.*", action = "^TagNews$" });
             routes.MapRoute(name: "contact", url: "lien-he", defaults: new { controller = "contact", action = "index" });
-            routes.MapRoute(name: "orderBuy", url: "gio-hang", defaults: new { controller = "order", action = "index" });
+            routes.MapRoute(name: "orderBuy", url: "gio-hang", defaults: new { controller = "order", action = "OrderIndex" });
             routes.MapRoute(name: "tai-ve", url: "tai-ve", defaults: new { controller = "download", action = "listDownload" });
             routes.MapRoute("productTag", "tag/{Tag}", new { controller = "product", action = "productTag", tag = UrlParameter.Optional }, new { controller = "^P.*", action = "^productTag$" });
             routes.MapRoute(name: "Admin", url: "Admin", defaults: new { controller = "Login", action = "LoginIndex" });

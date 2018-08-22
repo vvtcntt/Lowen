@@ -199,7 +199,7 @@ namespace LOWEN.Controllers.Display.news
             ViewBag.canonical = "<link rel=\"canonical\" href=\"/" + tblgroupnews.Tag + "\"/>";
             return View(listnews.ToPagedList(pageNumber, pageSize));
         }
-        public ActionResult partialLeftNews()
+        public PartialViewResult partialLeftNews()
         {
             return PartialView();
         }

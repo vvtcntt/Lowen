@@ -107,7 +107,7 @@ namespace LOWEN.Controllers.Display.product
                         result.Append("<a href=\"/" + listProduct[j].Tag + ".htm\" title=\"" + listProduct[j].Name + "\">" + listProduct[j].Name + "</a>");
                         result.Append("</h3>");
                         result.Append("<div class=\"boxPrice\">");
-                        result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProduct[j].PriceSale) + "đ</span><a href=\"/gio-hang\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
+                        result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProduct[j].PriceSale) + "đ</span><a href=\"/Order/OrderAdd?id="+listProduct[j].id+"&Ord=1\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
                         result.Append("</div>");
                         result.Append("</div>");
                         result.Append("</div>");
@@ -142,7 +142,7 @@ namespace LOWEN.Controllers.Display.product
                     result.Append("<a href=\"/" + listProduct[j].Tag + ".htm\" title=\"" + listProduct[j].Name + "\">" + listProduct[j].Name + "</a>");
                     result.Append("</h3>");
                     result.Append("<div class=\"boxPrice\">");
-                    result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProduct[j].PriceSale) + "đ</span><a href=\"/gio-hang\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
+                    result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProduct[j].PriceSale) + "đ</span><a href=\"/Order/OrderAdd?id=" + listProduct[j].id + "&Ord=1\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
                     result.Append("</div>");
                     result.Append("</div>");
                     result.Append("</div>");
@@ -275,7 +275,7 @@ namespace LOWEN.Controllers.Display.product
                 result.Append("<a href=\"/" + listProduct[j].Tag + ".htm\" title=\"" + listProduct[j].Name + "\">" + listProduct[j].Name + "</a>");
                 result.Append("</h3>");
                 result.Append("<div class=\"boxPrice\">");
-                result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProduct[j].Price) + "đ</span><a href=\"/gio-hang\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
+                result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProduct[j].Price) + "đ</span><a href=\"/Order/OrderAdd?id=" + listProduct[j].id + "&Ord=1\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
                 result.Append("</div>");
                 result.Append("</div>");
                 result.Append("</div>");
@@ -366,7 +366,7 @@ namespace LOWEN.Controllers.Display.product
                     result.Append("<a href=\"/" + listProducts[j].Tag + ".htm\" title=\"" + listProducts[j].Name + "\">" + listProducts[j].Name + "</a>");
                     result.Append("</h3>");
                     result.Append("<div class=\"boxPrice\">");
-                    result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProducts[j].Price) + "đ</span><a href=\"/gio-hang\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
+                    result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProducts[j].Price) + "đ</span><a href=\"/Order/OrderAdd?id=" + listProduct[j].id + "&Ord=1\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
                     result.Append("</div>");
                     result.Append("</div>");
                     result.Append("</div>");
@@ -458,7 +458,7 @@ namespace LOWEN.Controllers.Display.product
                 result.Append("<a href=\"/" + listProducts[j].Tag + ".htm\" title=\"" + listProducts[j].Name + "\">" + listProducts[j].Name + "</a>");
                 result.Append("</h3>");
                 result.Append("<div class=\"boxPrice\">");
-                result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProducts[j].Price) + "đ</span><a href=\"/gio-hang\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
+                result.Append("<span class=\"price\">" + string.Format("{0:#,#}", listProducts[j].Price) + "đ</span><a href=\"/Order/OrderAdd?id=" + listProduct[j].id + "&Ord=1\" title=\"Giỏ hàng\"><i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i> Đặt hàng</a>");
                 result.Append("</div>");
                 result.Append("</div>");
                 result.Append("</div>");
