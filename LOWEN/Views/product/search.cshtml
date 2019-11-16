@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+@using PagedList.Mvc;
+@model PagedList.IPagedList<LOWEN.Models.tblProduct>
+<div id="content">
+    <div class="nvar">
+        <nav>
+            <ul>
+                @Html.Raw(ViewBag.nUrl)
+            </ul>
+        </nav>
+    </div>
+    <div id="productList">
+        @Html.Raw(ViewBag.result)
+        @Html.PagedListPager(Model, page => Url.Action("search", new { page = page, sortOrder = ViewBag.CurrentSortOrder, sortName = ViewBag.CurrentSortName, sortLevel = ViewBag.CurrentSortLevel }), (PagedListRenderOptions)ViewBag.ship);
+    </div>
+</div>

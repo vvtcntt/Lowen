@@ -1,0 +1,63 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+@model LOWEN.Models.tblProductSyn
+<div id="content">
+    <div class="nvar">
+        <nav>
+            <ul>
+                @Html.Raw(ViewBag.nUrl)
+            </ul>
+        </nav>
+    </div>
+    <div id="productDetail">
+        <div id="topProductDetail">
+            <div id="imgProductDetail">
+                <div class="imageDetail">
+                    <a href="#" title="@Model.Name"><img src="@Model.ImageLinkDetail" alt="@Model.Name" /></a>
+                </div>
+                 
+            </div>
+            <div id="infoProductDetail">
+                <h1>@Model.Name</h1>
+                <p class="price">
+                    Giá bán lẻ : <strong>@String.Format("{0:#,#}", Model.Price) đ</strong>
+                    Giá khuyến mại : <strong style="color:#ff0000; font-size:22px">@String.Format("{0:#,#}", Model.PriceSale) đ</strong>
+                    @*@if (Model.Vat == true)
+                        {
+                            <span>(Giá đã bao gồm VAT)</span>
+
+                        }
+                        else
+                        {                 <span>(Giá chưa bao gồm VAT)</span>
+                        }*@
+                </p>
+                <p style="font-size:14px; color:#ff6a00; margin:5px 0px;">@Model.Sale</p>
+                 
+                 
+                <div id="buy">
+                    <a href="/Order/OrderAdd?id=@Model.id&Ord=1" title="Đặt hàng">
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        Đặt hàng
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="contentProductDetail">
+            @if (Model.Content != null && Model.Content != "")
+            {<div class="nvarContentProductDetail">
+                    <span>Thông tin sản phẩm</span>
+                </div>
+             <div class="content">
+                 @Html.Raw(Model.Content)
+                 @Html.Raw(ViewBag.chuoisosanh)
+                 <div class="Clear"></div>
+                 @Html.Raw(ViewBag.chuoipr)
+             </div>}
+             
+             
+        </div>
+         
+    </div>
+</div>
+ 

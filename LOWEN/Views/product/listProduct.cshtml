@@ -1,0 +1,18 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+
+ <div id="content">
+    <div class="nvar">
+        <nav>
+            <ul>
+                @Html.Raw(ViewBag.nUrl)
+            </ul>
+        </nav>
+    </div>
+    <div id="productList">
+       @Html.Raw(ViewBag.result)
+         
+    </div>
+</div>

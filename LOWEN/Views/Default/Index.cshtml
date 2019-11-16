@@ -1,0 +1,136 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+
+@{ Html.RenderAction("partialSlide","Default");}
+<div id="productHomes">
+    <p>Các sản phẩm của <span>LOWEN</span></p>
+    <div id="contentProductHomes">
+        @Html.Raw(ViewBag.result)
+    </div>
+</div>
+
+@{Html.RenderAction("partialIntroduction", "Default");}
+@{Html.RenderAction("partialNewsHomes", "news");}
+
+<div id="registerPartner">
+    <div id="contentRegisterPartner">
+        <div id="leftContentRegisterPartner">
+            <span class="name">Trở thành đối tác bán hàng của <strong>LOWEN</strong></span>
+            <figure>
+                <span class="note">"Lowen là thương hiệu thiết bị vệ sinh chú trọng tới hình ảnh của mình trong mắt khách hàng thông qua chất lượng 
+                sản phẩm và dịch vụ mang lại. Lowen mong muốn cùng các đối tác mang tới khách hàng một sản phẩm có giá trị tốt nhất. "</span>
+
+            </figure>
+            <div class="Clear"></div>
+            <span class="if">Vì vậy bạn cần hội tụ đủ <strong>4 điều kiện</strong> sau</span>
+            <div id="contentIf">
+                <div class="tearIf">
+                    <div class="leftTearIf">
+                        <i class="fa fa-get-pocket" aria-hidden="true"></i>
+
+                    </div>
+                    <div class="rightTearIf">
+                        <span class="title">Có giấy phép kinh doanh</span>
+                        <span class="des">Có giấy phép kinh doanh sản phẩm thiết bị vệ sinh do nhà nước cấp</span>
+                    </div>
+                </div>
+                <div class="tearIf">
+                    <div class="leftTearIf">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+
+
+                    </div>
+                    <div class="rightTearIf">
+                        <span class="title">Có vị trí - mặt bằng kinh doanh</span>
+                        <span class="des">Có địa chỉ kinh doanh rõ ràng, diện tích trên 30m2, có biển hiệu sản phẩm</span>
+                    </div>
+                </div>
+                <div class="tearIf">
+                    <div class="leftTearIf">
+                        <i class="fa fa-bath" aria-hidden="true"></i>
+                    </div>
+                    <div class="rightTearIf">
+                        <span class="title">Có tối thiểu 2 năm kinh nghiệm</span>
+                        <span class="des">Am hiểu về sản phẩm, có tối thiểu 2 năm kinh nghiệm kinh doanh thiết bị vệ sinh </span>
+                    </div>
+                </div>
+                <div class="tearIf">
+                    <div class="leftTearIf">
+                        <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
+
+
+                    </div>
+                    <div class="rightTearIf">
+                        <span class="title">Cam kết với LOWEN</span>
+                        <span class="des">Không bán hàng giả LOWEN, bán đúng giá theo quy định của LOWEN</span>
+                    </div>
+                </div>
+
+                <div class="Clear"></div>
+                <div class="registerNow">
+                    <a href="" title="">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        Đăng ký ngay
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="Clear"></div>
+
+    </div>
+</div>
+<div id="why">
+    <p class="name"><strong>6</strong> Lý do để bạn chọn sản phẩm <span> LOWEN </span></p>
+    <div id="contentWhy">
+        <div class="tearWhy">
+            <span class="icon">
+                <i class="fa fa-universal-access" aria-hidden="true"></i>
+
+
+            </span>
+            <span class="title">Chất lượng sản phẩm</span>
+            <span class="des">Bạn sẽ được sử dụng 1 sản phẩm chất lượng tốt nhất mà bạn có được khi mua sản phẩm Lowen</span>
+        </div>
+        <div class="tearWhy">
+            <span class="icon">
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+
+            </span>
+            <span class="title">Công nghệ sản phẩm</span>
+            <span class="des">Mọi công nghệ hàng đầu thế giới được LOWEN chọn lọc để áp dụng vào sản phẩm của mình</span>
+        </div>
+        <div class="tearWhy">
+            <span class="icon">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+
+            </span>
+            <span class="title">Bảo hành sản phẩm</span>
+            <span class="des">Thời gian bảo hành lên tới 12 năm với sản phẩm sứ bệt, 5 năm với sản phẩm thân sen vòi</span>
+        </div>
+        <div class="tearWhy">
+            <span class="icon"><i class="fa fa-bath" aria-hidden="true"></i></span>
+            <span class="title">Kiểu dáng mẫu mã</span>
+            <span class="des">Với hàng trăm mẫu mã, kiểu dáng thiết kế theo phong cách Châu Âu giúp bạn chọn được sản phẩm ưng ý nhất</span>
+        </div>
+        <div class="tearWhy">
+            <span class="icon">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+            </span>
+            <span class="title">Đổi trả miễn phí</span>
+            <span class="des">Bạn được quyền đổi hoặc trả lại sản phẩm miễn phí nếu sản phẩm không đúng cam kết</span>
+        </div>
+        <div class="tearWhy">
+            <span class="icon">
+                <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+
+            </span>
+            <span class="title">Thanh toán nhanh gọn</span>
+            <span class="des">Khách hàng có thể thanh toán tại nhà khi nhận hàng hoặc thanh toán trực tuyến</span>
+        </div>
+    </div>
+    <div class="Clear"></div>
+    <span class="note">P/s: Bạn không nên mua sản phẩm của chúng tôi nếu bạn chưa thực sự tin tưởng vào sự lựa chọn của mình !</span>
+</div>

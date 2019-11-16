@@ -1,0 +1,137 @@
+﻿@model LOWEN.Models.tblConfig
+<div id="footer">
+    <div id="contentFooter">
+        <div id="leftFooter">
+            <a href="/" title="Lowen"><img src="@Model.Logo" alt="Lowen" /></a>
+            <span>@Model.Slogan</span>
+        </div>
+        <div id="centerFooter">
+            <span>Cơ sở 1 : <strong>@Model.Address1</strong></span>
+            <span>Điện thoại : <strong>@Model.Hotline1</strong> </span>
+            <span>Cơ sở 2 : <strong>@Model.Address1</strong></span>
+            <span>Điện thoại : <strong>@Model.Hotline2</strong> </span>
+            <span>Email : <strong>@Model.Email</strong> </span>
+        </div>
+        <div id="rightFooter">
+            <ul class="ulMenu">
+                <li><a href="/" title="Trang chủ"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
+                <li><a href="/tin-tuc" title="Tin tức"><i class="fa fa-file-text-o" aria-hidden="true"></i> Tin tức</a></li>
+                <li><a href="/tuyen-dung" title="Tuyển dụng"><i class="fa fa-user" aria-hidden="true"></i> Tuyển dụng</a></li>
+                <li><a href="/lien-he" title="Liên hệ"><i class="fa fa-question-circle" aria-hidden="true"></i> Liên hệ</a></li>
+            </ul>
+            <ul class="ulSocial">
+                <li><a href="/@Model.FanpageFacebook" title="facebook Lowen" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="/@Model.FanpageGoogle" title="Google +" rel="nofollow"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                <li><a href="/@Model.FanpageYoutube" title="Youtube Lowen" rel="nofollow"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                <li><a href="#" title="Twiter" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+@{ Html.RenderAction("callPartial","default");}
+@*<div class="textwidget"  id="Call" data-toggle="modal" data-target="#myModal">
+    <div id="coccoc-alo-phoneIcon" class="coccoc-alo-phone coccoc-alo-green coccoc-alo-show hidden-xs visible-sm visible-md visible-lg am-call" style="display: block;">
+        <div class="coccoc-alo-ph-circle"></div>
+        <div class="coccoc-alo-ph-circle-fill"></div>
+        <div class="coccoc-alo-ph-img-circle">
+            <a class="pps-btn-img call-des " title="Liên hệ" href="javascript:;" target="_blank" rel="noopener"><img src="~/Content/Display/images/hinhtron.png" alt="Liên hệ" width="50" /></a><a class="pps-btn-img call-mb " title="Liên hệ" href="tel:1900555566">
+                <img src="~/Content/Display/images/hinhtron.png" alt="Liên hệ" width="50" /><br />
+            </a>
+        </div>
+    </div>
+     <div id="coccoc-alo-phoneIcon" class="coccoc-alo-phone coccoc-alo-green coccoc-alo-show visible-xs hidden-sm hidden-md hidden-lg am-call" style="display: block;">
+        <div class="coccoc-alo-ph-circle"></div>
+        <div class="coccoc-alo-ph-circle-fill"></div>
+        <div class="coccoc-alo-ph-img-circle">
+            <a class="pps-btn-img call-des" title="Liên hệ" href="javascript:;"><img src="~/Content/Display/images/hinhtron.png" alt="Liên hệ" width="50" /></a><a class="pps-btn-img call-mb " title="Liên hệ" href="tel:1900555566">
+                <br />
+                <img src="~/Content/Display/images/hinhtron.png" alt="Liên hệ" width="50" /><br />
+            </a>
+        </div>
+    </div>
+</div>*@
+@*<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        @using (Html.BeginForm("CommandCall", "default", FormMethod.Post))
+        {
+        <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Yêu cầu gọi điện</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-content">
+
+                        <img src="~/Content/Display/images/calendar.png" alt="Lịch hẹn" />
+                        <div class="text-hello">Lowen Việt Nam xin chào quý khách</div>
+
+                        <p class="conten-sub">Vui lòng nhập thông tin để chúng tôi gọi điện trực tiếp tư vấn cho bạn sau 2-5 phút</p>
+                        <input class="request_phone form-control" type="text" name="request_phone" id="request_phone" value="" placeholder="Số điện thoại liên hệ lại">
+                        <div class="phone_error alert-danger"></div>
+                        <textarea class="request_content form-control" name="request_content" id="request_content" placeholder="Nội dung thắc mắc?"></textarea>
+
+                        <!-- dieupt09112016 BEGIN -->
+                        <div>
+                            <p class="conten-sub">Bạn Ở Khu Vực Nào?</p>
+
+                            <input type="radio" id="loc_req_1" name="request_location" value="hn" class="css-checkbox-x2 request_location" checked="checked">
+                            <label for="loc_req_1" class="css-label-x2">HN</label>
+
+                            <input type="radio" id="loc_req_2" name="request_location" value="hcm" class="css-checkbox-x2 request_location">
+                            <label for="loc_req_2" class="css-label-x2">HCM</label>
+                            <input type="radio" id="loc_req_3" name="request_location" value="tk" class="css-checkbox-x2 request_location">
+                            <label for="loc_req_3" class="css-label-x2">Tỉnh khác</label>
+                        </div>
+                        <!-- dieupt09112016 END -->
+
+                        <div class="content_error alert-danger"><div class="loading"></div></div>
+                        <div class="submit-content error_send" style="display:none;text-align: center;">
+                        </div>
+                        <div class="submit-content js_submit"><span class="send-go btn" onclick="javascript:return Senmail()">Gửi Đi</span><div class="go-hotline"> Gọi hotline <span>@Model.HotlineIN</span> (24/7)</div></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span class="result" style="margin:5px 10px; color:#238f0e; font-weight:bold; display:inline-block; padding:5px;  float:left"></span>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>*@
+@*<script>
+    function Senmail() {
+        var content = $("#request_content").val();
+        var phone = $("#request_phone").val();
+        var kiemtra = 0;
+        if (content.length < 10) {
+            kiemtra = 1;
+            alert("Bạn vui lòng nhập nội dung yêu cầu !");
+            $(".result").html("Bạn vui lòng nhập nội dung yêu cầu");
+        }
+        if (phone.length < 10) {
+            kiemtra = 1;
+            alert("Bạn vui lòng nhập số điện thoại !");
+            $(".result").html("Bạn vui lòng nhập số điện thoại của bạn !");
+        }
+        if (kiemtra != 1) {
+            $(".loading").html("<img src=\"/Content/Display/images/InternetSlowdown_Day.gif\" style=\"width:70px; margin:5px auto; display:block;clear:both\" /> ");
+
+            $.post("/default/CommandCall", { "phone": phone, "content": content },
+                    function (data) {
+
+                        $(".result").html(data.result);
+                        $(".loading").html("");
+                        $("#request_content").val() = "";
+                        $("#request_phone").val() = "";
+                    });
+        }
+
+        return false;
+    }
+
+</script>*@
+@if(Request.Browser.IsMobileDevice==false)
+{
+    @Html.Raw(Model.CodeChat);
+}

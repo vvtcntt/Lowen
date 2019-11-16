@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    @Html.Raw(ViewBag.Title)
+    @Html.Raw(ViewBag.dcTitle)
+    @Html.Raw(ViewBag.Description)
+    @Html.Raw(ViewBag.dcDescription)
+    @Html.Raw(ViewBag.Keyword)
+    @Html.Raw(ViewBag.canonical)
+    @Html.Raw(ViewBag.Meta)
+    @{Html.RenderAction("partialdefault", "Default");}
+
+
+    <meta http-equiv="Content-Language" content="vi" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <link href="~/Content/Display/style/default.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/download.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/news.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/product.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/Order.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/Order_Rs.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/contact.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/contact_Rs.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/Call.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/Popup.css" rel="stylesheet" />
+    <script src="~/Content/Display/scripts/jquery-1.9.0.min.js"></script>
+    <script src="~/Content/Display/scripts/jquery.nivo.slider.js"></script>
+    <link href="~/Content/Display/style/nivo-slider.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="~/Content/Display/scripts/Scroll.js"></script>
+    <script src="~/Content/Display/scripts/popup.js"></script>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet" />
+    <link href="~/Content/Display/style/update/call.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/update/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/update/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/update/Popup_ud.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/update/product.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/update/sale.css" rel="stylesheet" />
+    <link href="~/Content/Display/style/update/times.css" rel="stylesheet" />
+    <script src="~/Content/Display/scripts/update/jquery.popupMiendatweb.min.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        @{ Html.RenderAction("partialBanner", "default");}
+    </header>
+    <section>
+        @RenderBody()
+    </section>
+    <footer>
+        @{ Html.RenderAction("partialFooter", "default");}
+    </footer>
+</body>
+ 
+<script type="text/javascript">
+
+    function CreateOrder(id) {
+        var quanlity = 1;
+        $.post("/Order/Create", { "idp": id, "ord": quanlity },
+            function (data) {
+                $("#popup_content").html(data.result);
+                $(".orderCount").html(data.sl);
+
+            });
+
+        return false;
+    }
+
+    function UpdateOrd(pId) {
+        var ord = $(".txtOrd" + pId).val();
+
+        $.post("/Order/UpdatOder", { "id": pId, "ord": ord },
+           function (data) {
+               $('#Gia' + pId).html(data.gia + " vnd");
+               $(".tt").html(data.tt);
+               htgh
+               $(".orderCount").html(data.sl);
+
+           });
+        return false;
+    }
+    function DeleteOrder(pId) {
+        $.post("/Order/DeleteOrder", { "id": pId },
+           function (data) {
+
+               $('.row' + pId).html(data.thongtin);
+               $(".tt").html(data.tt);
+               $(".count").html(data.count);
+               $(".orderCount").html( data.sl );
+
+           });
+        return false;
+    }
+
+</script><script type="text/javascript" language="JavaScript">
+    $(function () {
+        /* khởi tạo popup */
+        $('input[rel*=miendatwebPopup]').showPopup({
+            top: 200, //khoảng cách popup cách so với phía trên
+            closeButton: ".close_popup", //khai báo nút close cho popup
+            scroll: false, //cho phép scroll khi mở popup, mặc định là không cho phép
+            onClose: function () {
+                //sự kiện cho phép gọi sau khi đóng popup, cho phép chúng ta gọi 1 số sự kiện khi đóng popup, bạn có thể để null ở đây
+            }
+        });
+        $('a[rel*=miendatwebPopup]').showPopup({
+            top: 200, //khoảng cách popup cách so với phía trên
+            closeButton: ".close_popup", //khai báo nút close cho popup
+            scroll: false, //cho phép scroll khi mở popup, mặc định là không cho phép
+            onClose: function () {
+                //sự kiện cho phép gọi sau khi đóng popup, cho phép chúng ta gọi 1 số sự kiện khi đóng popup, bạn có thể để null ở đây
+            }
+        });
+    });
+    function close_popup() {
+        $("#popup_content").css("display", "none");
+        $("#lean_overlay").css("display", "none");
+
+    }
+</script>
+</html>
