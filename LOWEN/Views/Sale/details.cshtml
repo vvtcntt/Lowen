@@ -2,7 +2,7 @@
 @model LOWEN.Models.tblConfig
 
 @{
- 
+
     Layout = "~/Views/Shared/_LayoutDefault.cshtml";
 }<div id="content">
     <div id="mainSale">
@@ -32,9 +32,9 @@
                     <div class="countdown">
 
                         @{
-                            DateTime startDate = DateTime.Parse(Model.StartDateSale.ToString());
-                            DateTime endDate = DateTime.Parse(Model.EndDateSale.ToString());
-                            int daySale = (endDate - startDate).Days;
+                            DateTime startDate = DateTime.Parse(Model.EndDateSale.ToString());
+                            DateTime endDate = DateTime.Now;
+                            int daySale = (startDate - endDate).Days;
                             string lDaySale = "";
                             string rDaySale = "";
                             if (daySale.ToString().Length < 2)
@@ -133,7 +133,7 @@
                                 <span class="top-back">
                                     <span>@lMinute</span>
                                 </span>
-                                <span class="bottom">0</span>
+                                <span class="bottom">@lMinute</span>
                                 <span class="bottom-back">
                                     <span>@lMinute</span>
                                 </span>
@@ -220,17 +220,17 @@
             </div>
         </div>
     </div>
-    </div>
-    <div class="Clear"></div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
-
-    <script src="~/Content/Display/Js/update/script.js"></script>
-    <script>
-        jQuery.noConflict();
-        (function ($) {
-            // Your jQuery code here, using the $
-        })(jQuery);
-    </script>
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">
+</div>
+<div class="Clear"></div>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+ <script src="~/Content/Display/scripts/update/script.js"></script>
+<script>
+    jQuery.noConflict();
+    (function ($) {
+        // Your jQuery code here, using the $
+    })(jQuery);
+</script>
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Archivo+Black&display=swap" rel="stylesheet">

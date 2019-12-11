@@ -60,8 +60,10 @@
 #contentSp .itemSp:last-child{border:none}
 #contentSp .itemSp .name{font-weight:bold; font-size:14px; margin:5px; display:block}
 #contentSp .itemSp .address{font-size:13px; color:#666; margin:5px; display:block}
-#contentSp .itemSp a{font-size:22px; color:#F00; margin:5px; display:block}
-#contentSp .itemSp a img{width:25px; height:auto; display:inline-block; float:left; margin-right:10px}
+#contentSp .itemSp a{font-size:22px; color:#F00; margin:5px; display:inline-block}
+#contentSp .itemSp .phone img{width:25px; height:auto; display:inline-block; float:left; margin-right:10px}
+#contentSp .itemSp .zalo img{width:30px; height:auto; display:inline-block; float:left; margin-right:10px; margin-bottom:-5px}
+
 #footerSp{width:100%; height:auto; float:left; border-top:1px solid #e5e5e5; padding:5px 0px; background:#e8e8e8}
 #footerSp p{font-size:14px; color:#333; margin:5px;  text-align:center}
 #footerSp p span{color:#F00; margin:0px; font-weight:bold}
